@@ -143,7 +143,7 @@ export default function NoviPonavljajuciRacunPage() {
                 <SelectTrigger><SelectValue placeholder="Odaberi kontakt" /></SelectTrigger>
                 <SelectContent>
                   {kontakti.map((k) => (
-                    <SelectItem key={k.id} value={k.id}>{k.naziv ?? k.ime ?? "—"}</SelectItem>
+                    <SelectItem key={k.id} value={k.id}>{k.naziv ?? "—"}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
