@@ -3,7 +3,7 @@
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { kreiraj_temeljnicu_sa_stavkama, type StavkaRow } from "@/lib/auto-temeljnice";
+import { kreiraj_temeljnicu_sa_stavkama, type StavkaRow } from "@/lib/accounting/auto-temeljnice";
 
 function round2(n: number) {
   return Math.round(n * 100) / 100;
