@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PonudaPdfButtons } from "@/components/ponude/PonudaPdfButtons";
 import { formatCurrency, formatDate } from "@/lib/utils";
+import type { PonudaStavka } from "@/lib/types";
 import { ArrowLeft } from "lucide-react";
 
 const statusLabels: Record<string, string> = {
@@ -47,7 +48,7 @@ export default function PonudaDetailPage() {
     );
   }
 
-  const stavke = ponuda.stavke ?? [];
+  const stavke: PonudaStavka[] = ponuda.stavke ?? [];
 
   return (
     <div className="p-6">
