@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --sidebar: #0f172a;
+    --primary: #2563eb;
+    --primary-foreground: #fff;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    /* Marketing / auth design tokens */
+    --bg: #0a0a0f;
+    --card: #12121a;
+    --primary: #2563eb;
+    --cyan: #06b6d4;
+    --text: #ffffff;
+    --text-muted: #94a3b8;
+    --border: #1e1e2e;
+  }
+  body {
+    @apply bg-[#f8fafc] text-slate-900 antialiased;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}

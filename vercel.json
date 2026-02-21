@@ -1,0 +1,7 @@
+{
+  "crons": [
+    { "path": "/api/cron/auto-place", "schedule": "0 6 * * *" },
+    { "path": "/api/cron/ponavljajuci-racuni", "schedule": "0 7 * * *" },
+    { "path": "/api/cron/hnb-tecajevi", "schedule": "0 8 * * *" }
+  ]
+}
