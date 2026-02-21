@@ -91,10 +91,11 @@ export async function GET(req: Request) {
     const ReactPDF = await import("@react-pdf/renderer");
     const { IsplatnaListaDocument } = await import("@/components/place/IsplatnaListaPDF");
     const buffer = await ReactPDF.renderToBuffer(
-      React.createElement(IsplatnaListaDocument, { data })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      React.createElement(IsplatnaListaDocument, { data }) as any
     );
     const filename = `isplatna-lista-${toLatin1(radnik?.prezime ?? "radnik")}-${placa.period_od}.pdf`;
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array(buffer), {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="${filename}"`,

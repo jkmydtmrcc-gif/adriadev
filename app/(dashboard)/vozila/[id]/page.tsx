@@ -119,7 +119,7 @@ export default function VoziloDetailPage() {
   const getUlazniRacunLabel = (ulazniId: string | null) => {
     if (!ulazniId) return "—";
     const r = ulazniRacuni.find((u) => u.id === ulazniId);
-    return r ? `${r.broj_racuna ?? r.id.slice(0, 8)} (${formatDate(r.datum_racuna)})` : ulazniId.slice(0, 8);
+    return r ? `${r.broj_racuna_dobavljaca ?? r.id.slice(0, 8)} (${formatDate(r.datum_racuna)})` : ulazniId.slice(0, 8);
   };
 
   if (!useSupabase) {
@@ -273,7 +273,7 @@ export default function VoziloDetailPage() {
                       <SelectItem value="none">— Bez povezanog računa —</SelectItem>
                       {ulazniRacuni.map((u) => (
                         <SelectItem key={u.id} value={u.id}>
-                          {u.broj_racuna ?? u.id.slice(0, 8)} — {formatDate(u.datum_racuna)} — {formatCurrency(u.ukupno_s_pdv ?? 0)}
+                          {u.broj_racuna_dobavljaca ?? u.id.slice(0, 8)} — {formatDate(u.datum_racuna)} — {formatCurrency(u.ukupno_s_pdv ?? 0)}
                         </SelectItem>
                       ))}
                     </SelectContent>

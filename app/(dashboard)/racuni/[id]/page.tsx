@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RacunPdfButtons } from "@/components/racuni/RacunPdfButtons";
 import { formatCurrency, formatDate } from "@/lib/utils";
+import type { RacunStavka } from "@/lib/types";
 import { ArrowLeft, Send, TrendingUp } from "lucide-react";
 import { toast } from "sonner";
 
@@ -94,7 +95,7 @@ export default function RacunDetailPage() {
     );
   }
 
-  const stavke = racun.stavke ?? [];
+  const stavke: RacunStavka[] = racun.stavke ?? [];
 
   return (
     <div className="p-6">

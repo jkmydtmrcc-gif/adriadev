@@ -31,7 +31,7 @@ export function CompanyProvider({ children }: { children: React.ReactNode }) {
   const supabaseCompanyId = useCurrentCompanyId(user?.id);
   const mockCompanies = useMockStore((s) => s.companies);
   const mockCompanyId = useMockStore((s) => s.currentCompanyId);
-  const mockSetCompanyId = useMockStore((s) => s.setCurrentCompanyId);
+  const mockSetCompanyId = useMockStore((s) => s.setCurrentCompany);
 
   const companyId = useSupabase ? supabaseCompanyId : mockCompanyId;
   const companies = useSupabase ? (supabaseCompanies.data ?? []) : mockCompanies;

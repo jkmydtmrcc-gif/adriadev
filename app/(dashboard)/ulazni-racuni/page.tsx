@@ -485,7 +485,7 @@ export default function UlazniRacuniPage() {
                       <td className="py-3 text-right text-slate-600">{formatCurrency(u.ukupno_pdv ?? 0)}</td>
                       <td className="py-3">
                         <span className="rounded bg-slate-100 px-2 py-0.5 text-xs">
-                          {u.kategorija || u.ai_kategorija ?? "—"}
+                          {(u.kategorija || u.ai_kategorija) ?? "—"}
                         </span>
                       </td>
                       <td className="py-3">

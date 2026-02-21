@@ -79,10 +79,11 @@ export async function GET(
     const ReactPDF = await import("@react-pdf/renderer");
     const { PutniNalogPDF } = await import("@/lib/pdf/putni-nalog");
     const buffer = await ReactPDF.renderToBuffer(
-      React.createElement(PutniNalogPDF, { data })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      React.createElement(PutniNalogPDF, { data }) as any
     );
     const filename = `putni-nalog-${toLatin1(nalog.broj_naloga ?? id)}.pdf`;
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array(buffer), {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `inline; filename="${filename}"`,

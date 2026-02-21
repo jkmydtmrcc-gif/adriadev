@@ -31,6 +31,7 @@ const NAZIVI: Record<string, string> = {
 export interface StavkaRow {
   konto: string;
   naziv_konta?: string;
+  naziv?: string;
   duguje: number;
   potrazuje: number;
   partner_id?: string;
@@ -80,7 +81,7 @@ async function insertTemeljnica(
   const rows = stavke.map((s) => ({
     temeljnica_id: t.id,
     konto: s.konto,
-    naziv_konta: s.naziv_konta ?? NAZIVI[s.konto] ?? s.konto,
+    naziv_konta: s.naziv_konta ?? s.naziv ?? NAZIVI[s.konto] ?? s.konto,
     duguje: round2(s.duguje),
     potrazuje: round2(s.potrazuje),
     partner_id: s.partner_id ?? null,
@@ -121,7 +122,7 @@ export async function kreiraj_temeljnicu_sa_stavkama(
   const rows = stavke.map((s) => ({
     temeljnica_id: t.id,
     konto: s.konto,
-    naziv_konta: s.naziv_konta ?? NAZIVI[s.konto] ?? s.konto,
+    naziv_konta: s.naziv_konta ?? s.naziv ?? NAZIVI[s.konto] ?? s.konto,
     duguje: round2(s.duguje),
     potrazuje: round2(s.potrazuje),
     partner_id: s.partner_id ?? null,
@@ -319,7 +320,7 @@ export async function storno_temeljnica(
   const rows = reverse.map((s) => ({
     temeljnica_id: t.id,
     konto: s.konto,
-    naziv_konta: s.naziv_konta ?? NAZIVI[s.konto] ?? s.konto,
+    naziv_konta: s.naziv_konta ?? s.naziv ?? NAZIVI[s.konto] ?? s.konto,
     duguje: round2(s.duguje),
     potrazuje: round2(s.potrazuje),
     partner_id: s.partner_id ?? null,
